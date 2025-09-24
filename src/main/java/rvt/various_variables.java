@@ -19,6 +19,3 @@ public class various_variables {
                                 System.out.println(tractor);
     }
 }
-
-    
-
