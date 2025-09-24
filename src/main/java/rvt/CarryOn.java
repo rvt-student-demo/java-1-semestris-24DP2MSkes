@@ -1,4 +1,3 @@
-
 package rvt;
 import java.util.Scanner;
 
