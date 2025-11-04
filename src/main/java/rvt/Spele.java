@@ -1,38 +1,42 @@
 package rvt;
 
-import java.util.*; // * - immportē visu
+import java.util.Random;
 
+import java.util.Scanner;
 
 public class Spele {
-public static void main(String[] args) {
 
-Scanner scanner = new Scanner(System.in);
-Random random = new Random();
-int result = random.nextInt(10) + 1;
+    public static void main(String[] args) {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
 
-int guessamount = 0;
-System.out.println("Es domaju par skaitli no 1 lidz 10\n Tev tas jauzmin 3 meginajumos");
-System.out.println("Pirmais minejums: ");
+        int numberToGuess = random.nextInt(10) + 1; // random number 1–10
+        int attempts = 3;
+        boolean hasWon = false;
 
-while (true) {
+        System.out.println("Es domāju par skaitli no 1 līdz 10.");
+        System.out.println("Tev tas jāuzmin trīs mēģinājumos.");
 
-int guess = scanner.nextInt();
-if (guess == result) {
-System.out.println("Pareizi!!!!!\n Tu uzvareji!!!!");
-break;
-}else {
-    System.out.println("Nepareizi");
-    guessamount++;
+        for (int i = 1; i <= attempts; i++) {
+            System.out.print("Ievadi minējumu: ");
+            int guess = scanner.nextInt();
+
+            if (guess == numberToGuess) {
+                System.out.println("PAREIZI!!");
+                hasWon = true;
+                break;
+            } else {
+                System.out.println("nepareizi");
+            }
+        }
+
+        if (hasWon) {
+            System.out.println("Tu esi uzvarējis spēli.");
+        } else {
+            System.out.println("Pareizais skaitlis bija " + numberToGuess + ".");
+            System.out.println("Tu esi zaudējis spēli.");
+        }
+
+        scanner.close();
     }
-    if (guessamount == 3) {
-    System.out.println("Pareizais skaitlis bija: "+ result);
-    break;
-    }
-    }
-    scanner.close();
-    }
-    
-    
-    
-    }
-    
+}
